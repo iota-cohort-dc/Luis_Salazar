@@ -1,0 +1,26 @@
+Open Terminal
+pwd
+ls
+cd Desktop
+mkdir test
+cd
+touch index.html styles.css aboutMe.txt
+ls
+git init
+git status
+git add .
+git status
+git commit -m "first commit"
+git status
+git add aboutMe.txt
+git commit -m "added bio to about me"
+git status
+git add aboutMe.txt
+git commit -m "added favorite movies to aboutMe"
+git status
+git log
+git revert -n HEAD
+git status
+git commit -m "updated favorite movies in aboutMe"
+git status
+git log

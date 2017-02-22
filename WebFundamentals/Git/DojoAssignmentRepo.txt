@@ -1,0 +1,6 @@
+Logged into GitHub and created New Repository
+open terminal | navigated and opened DojoAssignments folder
+git init
+git add . | git commit -m "first commit" | git remote add origin https://github.com/salazarlg24/DojoAssignments.git | git push -u origin master
+touch readme.md
+git status | git add . | git commit -m "added readme" | git push -u origin master
