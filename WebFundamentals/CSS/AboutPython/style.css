@@ -1,0 +1,175 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	outline: 1px dashed red;
+}
+.wrapper{
+	width: 1000px;
+	padding: 15px;
+	margin: 0 auto;
+	background-color: #1c3f77;
+}
+.header{
+	margin: 0 auto;
+}
+.header img{
+	height: 100px;
+}
+.header h5{
+	margin-left: 450px;
+	margin-bottom: 0px;
+	display: inline-block;
+	vertical-align: top;
+	color: white;
+}
+.header a{
+	color: yellow;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+form{
+	height: 25px;
+	width: 200px;
+	background-color: grey;
+	border-radius: 10px;
+	padding: 13px;
+	text-align: center;
+	position: relative;
+	left: 775px;
+	bottom:85px;
+	 box-shadow: 2px 2px 2px black;
+}
+input[value="Search"]{
+	text-align: center;
+	color: red;
+}
+input[type="text"]{
+	height: 25px;
+}
+button{
+	height: 30px;
+	margin-left: 5px;
+	background-color: blue;
+}
+.toolbar{
+	height: 40px;
+	width: 923px;
+	background-color: #3b6ab5;
+	border-radius: 5px;
+	text-align: center;
+	position: relative;
+    left: 49px;
+    bottom: 45px;
+    box-shadow: 2px 2px 2px black;
+}
+.toollist{
+	list-style-type: none;
+	display: inline;
+	color: white;
+	font-size: 20px;
+	padding: 15px;
+	position:relative;
+	top: 10px;
+	margin-left: 43px;
+}
+.main{
+	width: 923px;
+	position: relative;
+	left: 50px;
+	bottom: 25px;
+}
+.sidebar{
+	width: 230px;
+	height: 240px;
+	text-align: center;
+	display: inline-block;
+	padding-top: 10px;
+	
+}
+.sidelist{
+	list-style-type: none;
+}
+.sidebar a{
+	color: white;
+
+}
+.content{
+	width: 689px;
+    height: 250px;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	color: white;
+}
+.content p{
+
+}
+.quote{
+	color: yellow;
+	text-align: center;
+	font-size: 20px;
+	font-weight: 100;
+	font-style: italic;
+	font-family: sans-serif;
+	margin-top: 15px
+}
+.zen{
+	color: white;
+	font-size: 18px;
+	font-weight: 100;
+	font-style: italic;
+	font-family: sans-serif;
+	margin-top: 5px
+}
+.boxes{
+	background-color: white;
+	width: 1030px;
+	height: 255px;
+	text-align: center;
+	font-size: 15px;
+	font-weight: 100;
+    font-family: sans-serif;
+    position: relative;
+    right: 65px;
+}
+.boxes li{
+	list-style-position: inside;
+	list-style-type: square;
+}
+.boxes a{
+	color: #96bbf7;
+	text-decoration: none;
+}
+.leftbox{
+	width: 400px;
+	display: inline-block;
+	position: relative;
+	bottom: 20px;
+}
+hr{
+	height: 5px;
+	background-color: #5c95f2;
+}
+.rightbox{
+	width: 400px;
+	display: inline-block;
+	position: relative;
+	top: 16px;
+}
+.footer{
+	text-align: center;
+    background-color: #1c3f77;
+    width: 1030px;
+    position: relative;
+    left: 286px;
+}
+.footer li{
+	display: inline;
+	color: #96bbf7;
+}
+.footer h6{
+	color: #96bbf7;
+}
+
+
+
