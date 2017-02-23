@@ -1,0 +1,90 @@
+#wrapper{
+	width: 1000px;
+	margin: 0 auto;
+	
+}
+#header{
+	background-color: white;
+	margin: 0;
+}
+#purple{
+background: #20002c; /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #20002c , #cbb4d4); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #20002c , #cbb4d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        ;
+}
+.jayne{
+	display:inline-block;
+
+}
+.master{
+	display:inline-block;
+	float: right;
+}
+.profilepic{
+	width: 450px;
+	height: 300px;
+	border: 5px solid grey;
+	display: inline-block;
+	margin: 25px;
+}
+#main{
+	width: 450px;
+	height: 310px;
+	background-color: white;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	
+}
+.silverback{
+
+
+background: #304352; /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #304352 , #d7d2cc); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #304352 , #d7d2cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+	margin: 0px;
+	color: white;
+	padding: 5px;
+
+}
+#leftbox{
+	width: 30%;
+	background-color: white;
+	display: inline-block;
+	margin:20px;
+}
+.contentpic{
+	width: 300px;
+}
+#middlebox{
+	width: 30%;
+	background-color: white;
+	display: inline-block;
+	margin-right: 20px;
+}
+#rightbox{
+	width: 30%;
+	background-color: white;
+	display: inline-block;
+
+}
+img{
+	width: 40px;
+}
+.button{
+	margin-left: 50px;
+	background-color: #356d61;
+	border-radius: 5px;
+	display: inline;	
+	color: white;
+}
+#footer{
+	background-color: white;
+	text-align: center;
+}
+.social{
+	width: 15px;
+}
