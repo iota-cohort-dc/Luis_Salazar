@@ -1,0 +1,137 @@
+*{
+	padding: 0px;
+	margin-bottom: 0px;
+	/*outline: 1px dashed red;
+*/}
+.wrapper{
+	width: 1000px;
+	padding: 15px;
+	margin: 0 auto;
+	font-family: arial;
+	background-color: white;
+
+}
+.header{
+	padding: 10px;
+	margin: 0 auto;
+	height: 25px;
+
+}
+.header img{
+	width: 90px;
+	position: relative;
+	bottom: 33px;
+    left: -21px;
+}
+.header h1{
+display: inline;
+color: grey;
+position: relative;
+bottom: 62px;
+left: -27px;
+}
+.header span{
+	color: blue;
+}
+h2{
+	background-color: blue;
+	color: white;
+	padding: 10px;
+	margin-top: 5px;
+}
+.sidebar{
+	width: 200px;
+	display: inline-block;
+	padding: 5px;
+	vertical-align: top;
+}
+.sidebar h4 span{
+	color: red;
+}
+.sidebar span{
+	color: blue;
+}
+.sidebar input{
+	width: 200px;
+	margin: 5px 0px 0px 0px;
+	border-radius: 5px;
+}
+.sidebar input[type="button"]{
+	height: 30px;
+	color: white;
+}
+.sidebar input[name="watch"]{
+	background-color: blue;
+}
+.sidebar input[name="more"]{
+	background-color: orange;
+}
+hr{
+	height: 1px;
+	background-color: silver;
+}
+.sidepic{
+	margin-top: 20px;
+	text-align: center;
+	color: white;
+	background-image: url("images/ad_background.png");
+	padding-bottom: 30px;
+}
+.sidepic p{
+	font-size: 22px;
+}
+.sidepic img{
+	width: 100px;
+}
+.sidepic input{
+	background-color: blue;
+	width: 170px;
+}
+.main{
+	width: 785px;
+	display: inline-block;
+}
+.mainheader{
+	height: 75px;
+	padding: 10px;
+}
+.mainheader img[alt="houselogo"]{
+	width: 20px;
+	
+
+}
+.mainheader span{
+	color: blue;
+}
+.info{
+	text-align: center;
+	display: inline-block;
+	font-size: 10px;
+	position: relative;
+	left: 527px;
+}
+.info a{
+	color: blue;
+	font-size: 22px;
+	text-decoration: none;
+}
+.info p{
+	margin: 0px;
+}
+.mainheader img[alt="phonelogo"]{
+	width: 40px;
+	position: relative;
+	left: 527px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -38,7 +38,7 @@ form{
 	bottom:85px;
 	 box-shadow: 2px 2px 2px black;
 }
-input[value="Search"]{
+input[placeholder="Search"]{
 	text-align: center;
 	color: red;
 }
