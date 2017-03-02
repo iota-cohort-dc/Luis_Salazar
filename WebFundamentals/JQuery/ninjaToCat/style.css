@@ -1,0 +1,19 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	/*outline: 1px dashed red;*/
+}
+.wrapper{
+	width: 700px;
+	padding: 15px;
+	margin: 0 auto;
+	font-family: arial;
+	background-color: #162f59;
+}
+.main{
+	text-align: center;
+}
+img{
+	display: block;
+	margin-bottom: 2px;
+}

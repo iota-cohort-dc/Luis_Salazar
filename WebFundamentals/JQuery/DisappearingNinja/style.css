@@ -1,0 +1,44 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	/*outline: 1px dashed red;*/
+}
+.wrapper{
+	width: 1000px;
+	padding: 15px;
+	margin: 0 auto;
+	font-family: arial;
+	background-color: white;
+}
+.main{
+	text-align: center;
+	color: black;
+}
+img{
+	height: 200px;
+}
+.butt{
+	cursor: pointer;
+    display: inline;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+.butt_start{
+	cursor: pointer;
+    display: inline;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+.butt:hover{
+	background-color: blue;
+	color: black;
+}
+.butt_start:hover{
+	background-color: blue;
+	color: black;
+}
+

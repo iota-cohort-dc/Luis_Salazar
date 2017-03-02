@@ -1,0 +1,56 @@
+*{
+	padding: 0px;
+	margin: 0px;
+/*	outline: 1px dashed red;
+*/}
+.wrapper{
+	width: 1000px;
+	padding: 15px;
+	margin: 0 auto;
+	font-family: arial;
+	background-color: white;
+}
+.main{
+	padding: 15px;
+}
+.left{
+	width: 400px;
+	display: inline-block;
+	vertical-align: top;
+}
+form{
+	width: 230px;
+	display: inline-block;
+}
+input{
+	height: 20px;
+	margin-bottom: 30px;
+}
+p{
+	margin-bottom: 15px;
+}
+textarea{
+	height: 100px;
+	width: 300px;
+	margin-bottom: 30px;
+}
+.button{
+	width: 100px;
+}
+.right{
+	width: 400px;
+	display: inline-block;
+	margin-left: 150px;
+}
+.box{
+	height: 200px;
+	text-align: center;
+}
+.info{
+	text-align: center;
+	
+}
+.here{
+	
+	text-align: center;
+}

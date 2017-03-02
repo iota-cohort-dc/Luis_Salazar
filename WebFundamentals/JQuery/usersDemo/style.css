@@ -1,0 +1,27 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	/*outline: 1px dashed red;*/
+}
+.wrapper{
+	width: 700px;
+	padding: 15px;
+	margin: 0 auto;
+	font-family: arial;
+	background-color: white;
+}
+.header{
+
+}
+table{
+	border: 1px solid black;
+	width: 600px;
+}
+th{
+	text-align: left;
+}
+.info{
+	width: 250px;
+	text-align: right;
+
+}
