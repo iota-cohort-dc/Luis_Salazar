@@ -1,0 +1,17 @@
+*{
+	padding: 0px;
+	margin: 0 auto;
+	outline: dotted 1px red;
+}
+img{
+	width: 100px;
+}
+.wrapper{
+	width: 1000px;
+}
+.main{
+	text-align: center;
+}
+.details{
+	width: 500px;
+}

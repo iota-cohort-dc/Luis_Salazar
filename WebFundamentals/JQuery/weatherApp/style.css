@@ -1,0 +1,35 @@
+*{
+	padding: 0px;
+	margin: 0 auto;
+}
+html{
+	background-image:url("andre-spieker-238.jpg");
+	background-size: 100%;
+
+}
+.wrapper{
+	width: 1000px;
+	padding:15px;
+    color:white;
+}
+.left{
+	padding: 20px;
+	margin-left: 150px;
+}
+form{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+h1{
+	margin-top: 40px;
+	margin-bottom: 15px;
+	text-shadow: 5px 5px 10px antiquewhite;
+}
+}
+.name{
+	font-size: 100px;
+}
+p{
+	font-family: sans-serif;
+	font-style: italic; 
+}
