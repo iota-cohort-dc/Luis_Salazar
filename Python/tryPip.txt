@@ -1,0 +1,6 @@
+-installed Django
+-pip list
+-pip install Django agian. it confirmed that it was already installed.
+-pip freeze, shows just the version of Django i downloaded. pip list shows more version information. 
+-added requirments.txt to my Desktop.
+-uninstalled Django and searched Flask.

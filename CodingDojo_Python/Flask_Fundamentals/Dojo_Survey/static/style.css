@@ -1,0 +1,40 @@
+*{
+	padding: 0px;
+	margin: 0 auto;
+	/*outline: dashed 1px red;*/
+}
+
+.main{
+	width: 700px;
+	height: 400px;
+	text-align: left;
+	margin-top: 50px;
+	border: 10px solid black;
+}
+input{
+	margin-left: 50px;
+}
+select{
+	margin-left: 50px;
+}
+
+}
+.box1{
+	display: inline;
+}
+.box2{
+	display: block;
+	margin-top: 20px;
+}
+.box3{
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+textarea{
+	width: 500px;
+	height: 100px;
+}
+input.btn{
+	display: block;
+}

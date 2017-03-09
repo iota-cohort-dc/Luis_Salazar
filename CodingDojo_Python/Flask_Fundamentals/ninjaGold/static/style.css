@@ -1,0 +1,33 @@
+*{
+	padding: 0px;
+	margin: 0 auto;
+	/*outline: dashed 1px red;*/
+}
+.wrapper{
+	width: 1000px;
+}
+.main{
+	width: 800px;
+	margin: auto;
+}
+.box1{
+	height: 200px;
+	width: 200px;
+	margin-top: 20px;
+	text-align: center;
+	border: 2px solid black;
+	padding: 10px;
+	display: inline-block;
+}
+.bottom{
+	margin:  auto;
+	
+}
+.sentbox{
+	width: 800px;
+	height: 200px;
+	border: 2px solid black;
+	overflow: scroll;
+}
+
+

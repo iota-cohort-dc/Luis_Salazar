@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Counter</title>
+</head>
+<body>
+	<div>
+		<h1>Counter</h1>
+		<h3>Current count: {{session['counter']}}</h3>
+		<form action="/count" method="post">
+			<input type="hidden" value="100" name="hv">
+			<input type="submit" value="GO!">
+		</form>
+		<form action="/reset" method='post'>
+			<input type="submit" value="Reset">
+		</form>
+	</div>
+</body>
+</html>
