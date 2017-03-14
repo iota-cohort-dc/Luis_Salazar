@@ -1,0 +1,19 @@
+<html>
+<head>
+  <title>Friends</title>
+</head>
+<body>
+  {% for friend in one_friend: %}
+    <p>ID: {{ friend['id'] }}</p>
+    <p>First Name: {{ friend['first_name'] }}</p>
+    <p>Last Name: {{ friend['last_name'] }}</p>
+    <form action="/friends/{{friend['id']}}" method="post">
+      UPDATE FIRST NAME <input type="text" name="first_name">
+      UPDATE LAST NAME <input type="text" name="last_name">
+      <input type="submit" name="update" value="UPDATE INFO">
+    </form>
+    {% endfor %}
+  
+ 
+</body>
+</html>

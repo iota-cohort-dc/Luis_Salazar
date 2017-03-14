@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Friends</title>
+  	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="main">
+			
+			{% with messages = get_flashed_messages() %}
+    			{% if messages %}
+     				{% for message in messages %}
+        				<div class="error">
+        				<p>{{message}}</p>
+        				</div>
+      				{% endfor %}
+    			{% endif %}
+  			{% endwith %}
+			
+			<form action="/success" method="post" >
+				Email Address <input type="text" name="email">
+				<input type="submit" name="submit" value="Submit Bruh">
+			</form>
+		</div>
+	</div>
+</body>
+</html>
