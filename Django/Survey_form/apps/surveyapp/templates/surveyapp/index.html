@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dojo | Survey</title>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="main">
+
+			<form action='/success' method="post">
+			{% csrf_token %}
+				<div class="box1">
+					Your Name<input type="text" name="name">
+				</div>
+				<div class="box2">
+				Dojo Location<select name="place">
+								<option value="D.C.">D.C.</option>
+								<option value="Seattle">Seattle</option>
+								<option value="San Jose">San Jose</option>
+							</select>
+				</div>
+				<div class="box3">
+				Favorite Language<select name="language">
+								<option value="Python">Python</option>
+								<option value="javaScript">javaScript</option>
+								<option value="Ruby">RubyonRails</option>
+							</select>
+				</div>
+				<p>Comments (optional)</p>
+				<textarea placeholder="Say something nice ;)" name="comm"></textarea>
+	
+				<input type="submit" name="button" class="btn" value="Button">
+			</form>
+		</div>
+	</div>
+</body>
+</html>

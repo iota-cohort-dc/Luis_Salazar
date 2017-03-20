@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Turtles</title>
+</head>
+<body>
+	{% load staticfiles %}
+	{% if displayAll == True %}
+ 		<img src="{% static 'images/tmnt.png' %}">
+ 	{%endif%}
+
+
+	
+
+
+	
+		
+	{% if displayAll == False %}
+		{% if color == 'blue' %}
+		<img src="{% static 'images/leonardo.jpg' %}">
+		{% elif color == 'purple' %}
+		<img src="{% static 'images/donatello.jpg' %}">
+		{% elif color == 'orange' %}
+		<img src="{% static 'images/michelangelo.jpg' %}">
+		{% elif color == 'red' %}
+		<img src="{% static 'images/raphael.jpg' %}">
+		{% elif color != 'color' %}
+		<img src="{% static 'images/notapril.jpg' %}">
+		{% endif %}
+	{% endif %}
+		
+	
+
+</body>
+</html>
+
