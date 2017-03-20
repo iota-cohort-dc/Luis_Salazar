@@ -1,0 +1,19 @@
+SELECT * FROM clients
+
+select email from clients
+
+select * from clients
+where first_name like '%n'
+
+select * from clients
+where last_name like 's%'
+
+insert into leads (first_name,last_name,registered_datetime,email,sites_id)
+values('Luis','Salazar',now(),'luis@cool.bruh',2); 
+
+update clients set
+first_name = 'Jabronie'
+where id = 1
+
+delete from leads where 
+id = 10

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Success</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="main">
+			<div class="header">
+				<h3>CodingDojo The Wall</h3>
+				<form action="/logoff">
+					<input type="submit" class="logoff" name="logoff" value="Log OFF">
+				</form>
+  				{% for name in session['user']%}
+  				<p>{{name['first_name']}} {{name['last_name']}}</p>
+  				{% endfor %}
+				</div>
+  			
+  			<div class="body">
+  			<p>Post a message</p>
+  			<form action="/message" method="post">
+  				<textarea name="message"></textarea>
+  				<button type="submit" >Post</button>
+  			</form>
+  			</div>
+  			<div class="content">
+  				
+  				 {% for item in sentences: %}
+      				
+      				<h3>{{ item['first_name']}} {{item['last_name']}} - {{item['created_at']}}</h3>
+      				<p >{{item['message']}}</p>
+      				
+      				<br>
+      				{%for c in comms%}
+      					{% if item['id'] == c['messages_id'] %}
+      					<h5 class="comms">{{c['first_name']}} {{c['last_name']}} {{c['created_at']}}</h5>
+      					<p class="comms">{{c['comment']}}</p> 
+      					{% endif %}     					
+      				{%endfor%}
+      					<h4>Post a comment</h4>	
+      					<form action="/comments/{{item['id']}}" method="post">
+      						<textarea class="commbox" name="comments"></textarea>
+      						<button class = "commbut" type="submit" name="submit">Post a Comment</button>
+      					</form>
+      				
+     	 		{% endfor %}	
+  			</div>
+		</div>
+	</div>
+</body>
+</html>

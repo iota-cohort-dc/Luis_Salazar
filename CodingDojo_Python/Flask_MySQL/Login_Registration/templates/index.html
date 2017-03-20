@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Login | Registration</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="main">
+			<div class="login">
+			<h2>Login</h2>
+			
+			<form action="/success" method="post">
+				Email <input type="text" name="email">
+				Password <input type="password" name="password">
+				<input class="btn" type="submit" name="sign" value="Sign In">
+			</form>
+			<hr>
+			{% with messages = get_flashed_messages() %}
+    			{% if messages %}
+     				{% for message in messages %}
+        				<h4>{{message}}</h4>
+      				{% endfor %}
+    			{% endif %}
+  			{% endwith %}
+			</div>
+			<div class="register">
+			
+			<h2>Register</h2>
+			<form action="/create" method="post">
+				First Name: <input type="text" name="fname">
+				Last Name: <input type="text" name="lname">
+				Email <input type="text" name="email">
+				Password <input type="password" name="pass">
+				Confirm Password<input type="password" name="conpass">
+				<input class="btn" type="submit" name="regis" value="Register">
+			</form>
+			<hr>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
