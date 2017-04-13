@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index</title>
+</head>
+<body>
+<h2>Welcome, {{user.name}}</h2>
+<p><a href="{%url 'books:add' %}" style="margin-left: 800px;">Add Books and Review</a></p>
+<p><a href="{%url 'login:logout' %}" style="margin-left: 800px;">Logout</a></p>
+
+<div name='recent_reviews' style="display: inline-block; width: 660px;">
+	<h3>Recent Book Reviews</h3>
+	{%for item in book%}
+	<p><a href="{%url 'books:bookreview' item.book.id %}">{{item.book.title}}</a></p>
+	<p style="margin-left: 20px; "> Rating: {{item.rating}}</p>
+	<p style="margin-left: 20px; "><a href="{%url 'books:userpage' item.user.id%}">{{item.user.name}}</a> says: {{item.content}}</p>
+	{%endfor%}
+</div>
+
+<div style="display: inline-block;vertical-align: top;margin-left: 100px; width: 145px;">
+
+	<h3>Other Books with Reviews</h3>
+	<div name="other_reviews" style="width: 300px; height: 200px; border: 2px solid black;overflow: scroll;display: inline-block;">
+	{%for item in other%}
+	<p><a href="{%url 'books:bookreview' item.book.id %}">{{item.book.title}}</a></p>
+	{%endfor%}
+	</div>
+</div>
+</body>
+</html>

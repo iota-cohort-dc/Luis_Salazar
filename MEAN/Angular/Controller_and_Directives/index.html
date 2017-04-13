@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+<head>
+	<title>Controler and Directives</title>
+	<script src="bower_components/angular/angular.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		var myAppModule = angular.module('myApp', []);
+		myAppModule.controller('divController',["$scope", function ($scope) {
+			$scope.foods= [];
+			$scope.addFood = function(){
+				$scope.foods.push($scope.newFood);
+				$scope.newFood = {};
+			}
+		}]);
+	</script>
+</head>
+<body>
+	<div ng-controller ="divController">
+	<form>
+		<p>Favorite Food <input type="text" ng-model="newFood.name"></p>
+		<p>Currently Typing:<span ng-bind='newFood.name'>{{newFood.name}}</span> </p>
+		<p><input type="submit" ng-click="addFood()"></p>
+	</form>
+	<h3>Foods</h3>
+	<form>
+		<input type="text" placeholder="filter" ng-model='filterFood'>
+	</form>
+	<ul>
+		<li ng-repeat="item in foods | filter:filterFood"> {{item.name}} </li>
+	</ul>
+	
+	</div>
+
+</body>
+</html>

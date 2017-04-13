@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Angular Routes</title>
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <script type="text/javascript">
+    	var myApp = angular.module('myApp',['ngRoute']);
+    	myApp.config(function($routeProvider){
+    		$routeProvider
+    		.when('/',{
+    			templateUrl: 'partials/customizeUsers.html',
+    		})
+    		.when('/list',{
+    			templateUrl: 'partials/userList.html'
+    		})
+    		.otherwise({
+    			redirectTo: '/'
+    		});
+    	});
+
+    	myApp.factory('userFactory',function(){
+    		var users = [
+    		{first:'Luis',last:'Salazar',language: 'Javascript'},
+    		{first:'Dorian',last:'Mongorian',language: 'Javascript'},
+    		{first:'Daniel',last:'Perez',language: 'Spanish'}
+
+    		];
+    		var factory = {}
+    		factory.getUsers = function(callback){
+    			callback(users);
+    		}
+    		factory.create = function(data){
+    			users.push(data);
+    		}
+    		factory.delete = function(data){
+    			var index = users.indexOf(data);
+    			users.splice(index,1);
+    		}
+
+    		return factory;
+    	})
+
+    	myApp.controller('CustomizeUsersController',["$scope","userFactory","$location",function($scope,userFactory,$location){
+    		$scope.users = [];
+
+    		userFactory.getUsers(function(data){
+    			$scope.users = data;
+    		});
+
+    		$scope.create = function(){
+    			userFactory.create($scope.newUser);
+    			$scope.newUser = {};
+    			$location.url('/list');
+    		};
+    		$scope.delete = function(data){
+    			userFactory.delete(data);
+    		}
+
+    	}]);
+    	myApp.controller('UserListsController', ["$scope","userFactory",function($scope,userFactory){
+    		$scope.users = [];
+
+    		userFactory.getUsers(function(data){
+    			$scope.users = data;
+    		});
+    	}])
+
+
+    </script>
+</head>
+<body>
+	<div ng-app='myApp'>
+		<a href="#!/">Customize Users</a> | <a href="#!/list">User List</a>
+		<div ng-view>
+			
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

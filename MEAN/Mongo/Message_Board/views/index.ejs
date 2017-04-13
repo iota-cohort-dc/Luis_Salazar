@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Message Board</title>
+</head>
+<body>
+	<h2>The Dojo Message Board</h2>
+	<hr>
+	<form action="/message" method="post">
+		<p>Name: </p>
+		<p><input type="text" name="name"></p>
+		<p>Message: </p>
+		<p ><input style="width: 300px; height: 50px; border: 2px solid black;" type="text" name="text"></p>
+		<p><input type="submit" value="Post message"></p>
+	</form>
+	<% for(var i = 0; i < messages.length; i++) {%>
+	<div style="margin-left: 40px;">
+		<h2>Name: <%= messages[i].name %></h2>
+		<h2>Message: <%= messages[i].text %></h2>
+
+		<div style="margin-left: 40px;">
+			<% for(var c = 0; c < messages[i].comments.length; c++) {%>
+				<p><strong>Name:</strong> <%= messages[i].comments[c].name %></p>
+				<p><strong>Comment:</strong> <%= messages[i].comments[c].text %></p>
+			<% } %>
+			<form action="/comment/<%= messages[i]._id %>" method="post">
+			<p>Name: </p>
+			<p><input type="text" name="name"></p>
+			<p>Comment: </p>
+			<p ><input style="width: 300px; height: 50px; border: 2px solid black;" type="text" name="text"></p>
+			<p><input type="submit" value="Post Comment"></p>
+			</form>
+			<hr>
+		</div>
+
+	</div>
+	<%}%>
+</body>
+</html>

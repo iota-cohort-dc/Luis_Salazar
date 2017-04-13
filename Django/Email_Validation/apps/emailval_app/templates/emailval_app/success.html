@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> Success </title>
+	{% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'emailval_app/css/style.css' %}">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="main">
+			<div class="valid">
+        		<p>This is a valid email. Thanks {{flash.email}} for signing up!</p>
+        	</div>
+        					
+			<h3>Email Address Entered</h3>
+			<div class="history">
+			{%for email in emails%}
+				<p>{{email.email}} {{email.created_at}}</p>
+			{%endfor%}
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Players and Team</title>
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <script src="angular-messages/angular-messages.js"></script>    
+    <script type="text/javascript">
+    	var myApp = angular.module('myApp',['ngRoute','ngMessages']);
+    	myApp.config(function($routeProvider) {
+    		$routeProvider
+    		.when('/',{
+    			templateUrl: 'partials/players.html',
+    		})
+    		$routeProvider
+    		.when('/teams',{
+    			templateUrl: 'partials/teams.html',
+    		})
+     		$routeProvider
+    		.when('/associations',{
+    			templateUrl: 'partials/associations.html',
+    		})
+    		.otherwise({
+    			redirectTo: '/'
+    		});
+    	});
+
+    	myApp.factory('playerFactory',function(){
+    		var players = [
+    		{name:'Luis',team:"Dolphins"},
+    		{name:'Dorian',team:"Chargers"},
+    		{name:'Daniel',team:"Raiders"},
+    		];
+    		var associate = [];
+
+    		var factory = {}
+    		factory.getPlayers = function(callback){
+    			callback(players);
+    		}
+    		factory.getAss = function(callback){
+    			callback(associate)
+    		}
+    		factory.create = function(data){
+    			players.push(data);
+    		}
+    		factory.delete = function(data){
+    			var index = players.indexOf(data);
+    			players.splice(index,1);
+    		}
+    		factory.associate = function(data){
+    			associate.push(data);
+    		}
+    		factory.deleteAss = function(data){
+    			var index = associate.indexOf(data);
+    			associate.splice(index,1);
+    		}
+			return factory;
+		});
+		myApp.factory('teamsFactory',function(){
+			var teams = [
+			{name:'Dolphins'},
+    		{name:'Patriots'},
+    		{name:'Jets'},
+			];
+			var factory = {}
+			factory.getTeams = function(callback){
+				callback(teams);
+			}
+			factory.create = function(data){
+				teams.push(data);
+			}
+			factory.delete = function(data){
+				var index = teams.indexOf(data);
+				teams.splice(index,1);
+			}
+			return factory;
+		});
+    	myApp.controller('PlayersController',["$scope","playerFactory",function($scope,playerFactory){
+    		$scope.players = [];
+
+    		playerFactory.getPlayers(function(data){
+    			$scope.players = data;
+    		});
+
+    		$scope.addPlayer = function(){
+    			playerFactory.create($scope.newPlayer);
+    			$scope.newPlayer = {};
+    		};
+    		$scope.deletePlayer = function(data){
+    			playerFactory.delete(data);
+    		}
+    	}]);
+    	myApp.controller('TeamsController',["$scope","teamsFactory",function($scope,teamsFactory){
+    		$scope.teams = [];
+
+    		teamsFactory.getTeams(function(data){
+    			$scope.teams = data;
+    		});
+    		$scope.addTeam = function(){
+    			teamsFactory.create($scope.newTeam);
+    			$scope.newTeam = {};
+    		}
+    		$scope.deleteTeam = function(data){
+    			teamsFactory.delete(data);
+    		}
+    	}]);
+    	myApp.controller('AssController',["$scope","teamsFactory","playerFactory",function($scope,teamsFactory,playerFactory){
+    		$scope.teams = [];
+    		$scope.players = [];
+    		$scope.associate = [];
+
+    		teamsFactory.getTeams(function(data){
+    			$scope.teams = data;
+    		})
+    		playerFactory.getPlayers(function(data){
+    			$scope.players = data;
+    		})
+    		playerFactory.getAss(function(data){
+    			$scope.associate = data;
+    		})
+    		$scope.addAssociation = function(){
+    			playerFactory.associate($scope.newPlayer)
+    			$scope.newPlayer = {}
+    		}
+    		$scope.removeAss = function(data){
+    			playerFactory.deleteAss(data)
+    		}
+    	}]);
+    </script>
+</head>
+<body>
+	<div ng-app="myApp">
+		<a href="#!/">Players</a> | <a href="#!/teams">Teams</a> | <a href="#!/associations">Associations</a>
+		<div ng-view>
+			
+		</div>
+	</div>
+</body>
+</html>

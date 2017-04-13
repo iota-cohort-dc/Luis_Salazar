@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Button fun</title>
+	<script src='bower_components/jquery/dist/jquery.min.js'></script>
+	<style type="text/css">
+
+		.red{
+			background-color: red;
+		}
+		.green{
+			background-color: green;
+		}
+
+	</style>
+	<script type="text/javascript">
+
+	$(document).ready(function(){
+
+	$(".button").click(function(){
+   			$(this).toggleClass('red');
+   		})
+	$(".button").hover(function(){
+   		$(this).toggleClass('green');
+   	})
+   	$(".button").click(function(){
+   		$.get("https://api.github.com/users/salazarlg24", displayName)
+		function displayName(data) {
+		$('.name').append(data.name);
+  		console.log(data);
+		}
+   	})
+
+	});
+
+	</script>
+</head>
+<body>
+	<div class="name">
+		
+	</div>
+	<p>This is a button: <button class="button">This is a super cool button.</button></p>
+</body>
+</html>

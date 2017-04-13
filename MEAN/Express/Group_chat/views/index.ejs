@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Group Chat</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+ 
+        $(document).ready(function (){
+            // this triggers the connection event in our server!
+            var socket = io.connect();
+
+			$('.survey').submit(function (e){
+				e.preventDefault();
+    			socket.emit("name_submit", {name:$('.name').val()});
+			});
+			socket.on('server_arr', function(data){
+				$('.signin').css('display','none');
+				$('.convo').css('display','inline-block');
+				for (var i = 0; i < data.arr.length; i++) {
+						$('.users').append('<p>' + data.arr[i]+ '</p>');
+					}
+			}),
+			socket.on('server_res',function(data){
+				$('.users').append('<p>' + data.res+":" + "    Has logged in." + '</p>');
+
+			})
+			$('.message').submit(function(e){
+				e.preventDefault();
+				socket.emit('message_sent', {comment: $('.comment').val()})
+			})
+			socket.on('message_post', function(data){
+				$('.comment').val(" ");
+				$('.users').append("<p>" + data.name +":    "+ data.res.comment + '</p>');
+			})
+        })
+    </script>
+</head>
+<body>
+	<div class="signin" style="border: 2px solid black; width: 400px; ">
+		<form class="survey">
+			<p>Your name:</p> 
+			<p><input type="text" class="name"></p>
+			<p><input type="submit" class="cancel" value="Cancel"> <input type="submit" name="ok" value="OK"></p>
+		</form>
+	</div>
+	<div class="convo" style="display: none;">
+		
+			<h4>Conversation Board</h4>
+
+			<div style="border: 2px solid black; width: 500px; height: 400px;overflow: scroll;background-image: url('http://vector.me/files/images/3/8/38289/aol_instant_messenger.png');background-size:contain;background-repeat: no-repeat;" class="users">
+			</div>
+			<br>
+				<form class="message">
+					<input style="width: 400px;border: 2px solid black;" type="text" class="comment" placeholder="enter your message here.">
+					<input type="submit" value="Send">
+				</form>
+
+	</div>
+</body>
+</html>

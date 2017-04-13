@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index</title>
+</head>
+<body>
+<div style="border: 2px solid black; width: 400px;">
+	<form action="/results" method="post">
+		<p>Your Name: <input type="text" name="name"></p>
+
+		<p>Locations: <select name="place">
+			<option>D.C</option>
+			<option>Seattle</option>
+			<option>Cali</option>
+		</select></p>
+
+		<p>Favorite Language: 
+		<select name="lang">
+			<option>Javascript</option>
+			<option>Python</option>
+			<option>Ruby on Rails</option>
+		</select></p>
+		<p>Comment (optional):</p>
+		<textarea name="comment" style="width: 300px;height: 100px;"></textarea>
+		<p style="margin-left: 200px;"><input type="submit" value="Submit Info" style="background-color: blue; color: white;"></p>
+	</form>
+</div>	
+</body>
+</html>

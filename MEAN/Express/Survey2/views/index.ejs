@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Survey 2</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+            // this triggers the connection event in our server!
+            var socket = io.connect();
+			$('.survey').submit(function (e){
+				e.preventDefault();
+    			socket.emit("form_submit", {name:$('.name').val(),locations:$('.place').val(),language:$('.lang').val(),comment:$('.comment').val()});
+			});
+			socket.on('updated_message', function (data){
+    		console.log(data.res);
+    		$('.div').html("You Emitted the following Information: " + JSON.stringify(data.res));
+			});
+			socket.on('random_number', function (data){
+    		console.log(data.num);
+    		$('.div2').html("Your lucky number is: " + data.num);
+			});
+        })
+    </script>
+</head>
+<body>
+
+
+
+<div style="border: 2px solid black; width: 500px;">
+
+	<div class="div" style="background-color: green;">
+	</div>
+	<div class="div2" style="background-color: green"></div>
+
+	<form class="survey">
+		<p>Your Name: <input type="text" class="name"></p>
+
+		<p>Locations: <select class="place">
+			<option>D.C</option>
+			<option>Seattle</option>
+			<option>Cali</option>
+		</select></p>
+
+		<p>Favorite Language: 
+		<select class="lang">
+			<option>Javascript</option>
+			<option>Python</option>
+			<option>Ruby on Rails</option>
+		</select></p>
+		<p>Comment (optional):</p>
+		<textarea class="comment" style="width: 300px;height: 100px;"></textarea>
+		<p style="margin-left: 200px;"><input class="btn" type="submit" value="Submit Info" style="background-color: blue; color: white;"></p>
+	</form>
+</div>	
+</body>
+</html>

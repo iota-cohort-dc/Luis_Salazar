@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index</title>
+</head>
+<body>
+	<form action="/users" method="post">
+		<p>Name: <input type="text" name="name"></p>
+		<p>Age: <input type="text" name="age"></p>
+		<p><input type="submit" value="Create User"></p>
+	</form>
+
+	<h3>Users</h3>
+	<% for(var i = 0;i < users.length; i++) { %>
+	<p>Name: <%= users[i].name %></p>
+	<p>Age: <%= users[i].age %></p>
+	<% } %>
+</body>
+</html>

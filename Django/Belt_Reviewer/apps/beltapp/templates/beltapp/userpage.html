@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Page</title>
+</head>
+<body>
+<p><a href="{%url 'books:index' %}" style="margin-left: 800px;">Home</a></p>
+<p><a href="{%url 'login:logout' %}" style="margin-left: 800px;">Logout</a></p>
+{%for item in user%}
+<h3>User Alias: {{item.user_name}}</h3>
+<p>Name: {{item.name}}</p>
+<p>Email: {{item.email}}</p>
+<p>Total Reviews: {{item.all_revs}}</p>
+{%endfor%}
+
+<br>
+
+<h3>Posted Reviews on the following books</h3>
+{%for item in review%}
+<p><a href="{%url 'books:bookreview' item.book.id %}">{{item.book.title}}</a></p>
+{%endfor%}
+</body>
+</html>

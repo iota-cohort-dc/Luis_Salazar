@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Show</title>
+</head>
+<body>
+<h1>PokeDex</h1>
+
+	<p> <%= pokes.name %> </p>
+	<p style="margin-left: 20px;"><%= pokes.type %></p>
+	<p style="margin-left: 20px;"><%= pokes.age %> years old</p>
+	<p><a href="/destroy/<%= pokes._id %>">Delete this Pokemon</a></p>
+	<p><a href="/edit/<%= pokes._id %>">Edit this Pokemon</a></p>
+	<p><a href="/">Home</a></p>
+
+	<hr>
+</body>
+</html>
