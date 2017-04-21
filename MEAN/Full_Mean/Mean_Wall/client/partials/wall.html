@@ -1,0 +1,36 @@
+<div ng-controller="UsersController">
+	<h1 style="display: inline-block;">Full MEAN Wall</h1> 
+	<h3 style="display: inline-block;margin-left: 500px">Welcome {{user}}</h3>
+	<input style="display: inline-block;" type="submit" value="Sign Out" ng-click="logout()">
+	<hr>
+</div>
+
+<div ng-controller="WallController" style="margin-left: 50px;">
+	<p>Post a message:</p>
+	<form>
+	<textarea style="width: 700px; height: 50px;" ng-model="newMessage.message" required></textarea>
+	<button ng-click="create(user)">Post a message</button>
+	</form>
+	<br>
+
+	<div ng-repeat="message in messages | orderBy:'-createdAt' track by $index">
+		<h4>{{message.user}} - {{message.createdAt | date}}</h4>
+		<p>{{message.message}}</p>
+
+		<div style="margin-left: 50px;" ng-repeat="item in message.comment">
+			<h4>{{item.user}}</h4>
+			<p >{{item.comment}}</p>
+		</div>
+		<div style="margin-left: 50px;">
+			<form>
+				<textarea style="width: 700px; height: 50px;" ng-model="newComment[$index].comment" required></textarea>
+				<input type="submit" value="Post a comment" ng-click="createComment(message._id,$index)">
+			</form>
+		</div>
+
+	</div>
+
+</div>
+
+
+

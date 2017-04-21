@@ -1,0 +1,12 @@
+<body>
+	<h1>Index</h1>
+	<a href="#!/new">Creat a new pokemon.</a>
+	<hr>
+	<h1>Pokemons!</h1>
+	<% for(var i = 0;  i < pokes.length; i++) {%>
+	<p><a href="/poke/<%= pokes[i].id %>"><%= pokes[i].name %></a></p>
+	<p> Click name for more info</p>
+
+	<hr>
+	<% } %>
+</body>
