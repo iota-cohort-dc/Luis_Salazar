@@ -11,7 +11,18 @@
 	<div>
 		<form>
 			<p>Date: <input type="date" ng-model="newAppoint.date">
-			Time: <input type="time" min="08:00:00" max="17:00:00" ng-model="newAppoint.time" required>
+			Time: <select ng-model="newAppoint.time">
+				<option>8:00 am</option>
+				<option>9:00 am</option>
+				<option>10:00 am</option>
+				<option>11:00 am</option>
+				<option>12:00 pm</option>
+				<option>1:00 pm</option>
+				<option>2:00 pm</option>
+				<option>3:00 pm</option>
+				<option>4:00 pm</option>
+				<option>5:00 pm</option>
+			</select>
 			</p>
 			<p>Complain: <textarea ng-model="newAppoint.text"></textarea></p>
 			<p> <a href="#!/dashboard">Cancel</a> <button ng-click="create()">Add Appointment</button></p>

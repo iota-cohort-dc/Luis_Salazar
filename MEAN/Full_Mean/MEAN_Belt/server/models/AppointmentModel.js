@@ -14,6 +14,7 @@ var AppointSchema = new mongoose.Schema({
 	text:{
 		type: String,
 		required: true,
+		minlength: 10,
 	},
 	_user:{
 		type: Schema.Types.ObjectId, ref: "User"

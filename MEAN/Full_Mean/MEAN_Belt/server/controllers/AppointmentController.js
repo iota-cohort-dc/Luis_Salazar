@@ -20,19 +20,30 @@ module.exports = {
 			if(err){
 				res.json(err);
 			}
-			Appoint.findOne({date:req.body.date},function(err,appoint){
+			Appoint.find({date:req.body.date},function(err,appoint){
 				if(err){
 					res.json(err);
 				}
-				// else{
-					// console.log(appoint.length)
-					// if(appoint.length >= 3){
-					// 	res.json({error:"Only 3 appoint per date allowed"});
-					// }
-					// else{
+				console.log('USER',user._id);
+				console.log('USER2',appoint);
+				console.log("APPOINTMENT LENGTH",appoint.length)
+				if(appoint.length >=3){
+					res.json({errors:"Only 3 Appointments  per date allowed"});
+				}
+				else{
+					Appoint.findOne({date:req.body.date, _user:req.params.id},function(err,user1){
+						console.log("IN FIND ONE",user1)
+						if(err){
+							res.json(err);
+						}
+						if(user1){
+							res.json({errors:'Only 1 appointment per day allowed.'})
+						}
+					
+						else{
 							Appoint.create({date:req.body.date, time:req.body.time, text:req.body.text, _user: user},function(err,appoint2){
 								if(err){
-									res.json(err);
+									res.json({errors:"Must be 10 characters or more"});
 								}
 								else{
 									console.log('Appoint made!',appoint2);
@@ -40,11 +51,10 @@ module.exports = {
 									user.save();
 									res.json(appoint2);
 								}
-
 							})
-						// }
-				// }
-				
+						}
+					})
+				}
 			})
 		})
 	},
