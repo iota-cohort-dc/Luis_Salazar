@@ -1,0 +1,38 @@
+<a href="/users/edit">Edit User</a>
+<br>
+<h3>New Scecret</h3>
+<form action="/secrets" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<textarea style="width: 300px; height: 50px" name="secret"></textarea>
+	<input type="submit" name="Create Secret">
+</form>
+<br>
+<div>
+
+	<div style="display: inline-block;">
+		<h3>Secrets</h3>
+		<div style=" width: 300px; height: 200px; overflow: scroll; padding: 5px;">
+			<% @secrets.each do |secret|%>
+					<p><%= secret.secret %></p>
+					<p><%= secret.likes.count %> likes <a style="margin-left: 50px;" href="/secrets/<%= secret.id %>" data-method="delete" >Delete</a></p>
+				<hr>
+			<% end %>
+		</div>
+	</div>
+
+	<div style=" display: inline-block; vertical-align: top; margin-left: 200px;">
+	<h3>Secrets Liked</h3>
+		<div style=" width: 300px;height: 200px; overflow: scroll;">
+			<% @liked.each do |secret| %>
+				<% secret.likes.each do |like| %>
+					<% if like.user_id == @user.id%>
+						<p><%= secret.secret %></p>
+						<p style="margin-left: 10px;"><%= secret.likes.count %> likes </p>
+					<% end %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+
+</div>
+

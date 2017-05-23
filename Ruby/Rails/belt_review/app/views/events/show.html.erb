@@ -1,0 +1,46 @@
+<h2 style="display: inline-block;"> <%= @event.name %> </h2>
+<a style="margin-left: 500px;" href="/events">Events Dashboard</a> | <a href="/logout">Log Out</a>
+<br>
+<div>
+	<div style="display: inline-block; vertical-align: top;">
+		<p>Host: <%= @event.user.first_name %> <%= @event.user.last_name %></p>
+		<p>Date: <%= @event.date.strftime("%B %d, %Y") %></p>
+		<p>Location: <%= @event.city%>, <%= @event.state%> </p>
+		<p>People who are joining the event: <%= @attending.count %></p>
+
+		<br>
+
+		<table style="width: 400px;">
+			<tr>
+				<th>Name</th>
+				<th>Location</th>
+				<th>State</th>
+			</tr>
+			<% @attending.each do |attendees|%>
+				<tr>
+					<td><%= attendees.user.first_name %></td>
+					<td><%= attendees.user.city %></td>
+					<td><%= attendees.user.state %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+
+	<div style="display: inline-block; margin-left: 100px">
+		<p>Discussion about this event:</p>
+		<div style="width: 300px; height: 350px; border: 1px solid black; overflow: scroll; ">
+			<% @comments.each do |comment| %>
+				<p><span style="color: blue;"><%= comment.user.first_name %> says:</span> <%= comment.comment %></p>
+				<hr style="width: 200px;">
+			<% end %>
+		</div>
+		<br>
+		<p>Add Comment:</p>
+		<form action="/comments/<%= @event.id %>" method="post">
+			<textarea style="width: 300px;" name="comment"></textarea>
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			<p style="margin-left: 200px;"><input type="submit" value="Submit Comment"></p>
+		</form>
+	</div>
+
+</div>

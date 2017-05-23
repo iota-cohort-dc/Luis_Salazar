@@ -1,0 +1,16 @@
+<h1 style="color: blue;">Log In</h1>
+
+<% if flash[:error] %>
+	<p style="color: red"><%= flash[:error] %></p>
+<% end %>
+
+<form action="/sessions_login" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input type="text" name="email" placeholder="Email">
+	<input type="password" name="password" placeholder="Password">
+	<input type="submit" value="Log In">
+</form>
+<br>
+
+<a href="/users/new">Dont have an account? Create one here!</a>
+

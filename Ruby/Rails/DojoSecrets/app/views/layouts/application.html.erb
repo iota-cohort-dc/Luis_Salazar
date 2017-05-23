@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DojoSecrets</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if current_user %>
+    <h2 style="display: inline-block;"><%= current_user.name %></h2>
+    <a style="margin-left: 500px;" href="/secrets">Home</a> | <a href="/logout">Log Out</a>
+
+
+  <br>
+  
+      <% if flash[:errors] %>
+        <% flash[:errors].each do |errs| %>
+        <p style="color: red"><%= errs %></p>
+        <% end %>
+      <% end %>
+    <% end %> 
+
+
+    <%= yield %>
+  </body>
+</html>

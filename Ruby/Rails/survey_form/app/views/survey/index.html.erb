@@ -1,0 +1,29 @@
+<div>
+	<h1>Survey form</h1>
+	<div style="border: 2px solid black; width: 500px; margin: auto; padding: 10px;">
+		<form action="/success" method="post">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			<p>Your Name: <input type="text" name="form[name]"></p>
+			<p>Location: 
+				<select name="form[location]">
+					<option>Mountain View</option>
+					<option>DC</option>
+					<option>Los Angels</option>
+				</select>
+			</p>
+			<p>Language: 
+				<select name="form[language]">
+					<option>JavaScript</option>
+					<option>Python</option>
+					<option>Ruby</option>
+				</select>
+			</p>
+			<p>Comment (optional)</p>
+			<textarea style="width: 400px; height: 75px" name="form[comment]"></textarea>
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+
+
+</div>
+

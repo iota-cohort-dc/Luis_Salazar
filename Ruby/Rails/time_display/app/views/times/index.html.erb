@@ -1,0 +1,14 @@
+
+<div style="text-align: center;">
+	<h1>Times Display</h1>
+	<br>
+	<div style="border: 1px solid black; width: 200px; margin: auto">
+		<h4 >The current time and date:</h4>
+	</div>
+	<br>
+	<div style="border: 3px solid black; width: 300px; margin: auto">
+		<h1><%= @time.strftime("%b %d, %Y") %></h1>
+		<h1><%= @time.strftime("%I:%M, %p") %></h1>
+	</div>
+</div>
+

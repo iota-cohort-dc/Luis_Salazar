@@ -1,0 +1,19 @@
+<h1 style="color: blue;">Please Create an account</h1>
+
+
+<% if flash[:errors] %>
+	<% flash[:errors].each do |errs| %>
+	<p style="color: red"><%= errs %></p>
+	<% end %>
+<% end %>
+
+<form action="/sessions_create" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<p><input type="text" name="name" placeholder="Name"></p>
+	<p><input type="text" name="email" placeholder="Email"></p>
+	<p><input type="password" name="password" placeholder="Password"></p>
+	<p><input type="password" name="password_confirmation" placeholder="Password Confirmation"></p>
+	<p><input type="submit" value="Create"></p>
+</form>
+<br>
+<a href="/sessions/new">Already have an account? Log in here</a>

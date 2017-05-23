@@ -1,0 +1,56 @@
+<div >
+	<h1 style="display: inline-block;">Ruby Wall</h1> 
+	<h3 style="display: inline-block;margin-left: 500px">Welcome <%= @user.name%></h3>
+	<a href="/logout">Log Out</a>
+	<hr>
+</div>
+
+<div style="margin-left: 50px;">
+
+<% if flash[:errors] %>
+	<% flash[:errors].each do |errs| %>
+	<p style="color: red"><%= errs %></p>
+	<% end %>
+<% end %>
+
+	<p>Post a message:</p>
+		<form action="/messages" method="post">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+			<textarea style="width: 700px; height: 50px;" required name="message"></textarea>
+
+			<input type="submit" value="Post a comment" >
+		</form>
+	<br>
+	<% @messages.each do |message| %>
+	<div>
+		<h3 style="color:red;">Message:</h3>
+		<h4 style="color:red;"><%= message.user.name %> - <%= message.created_at.strftime("%B %d, %Y") %></h4>
+		<p><%= message.message %></p>
+		<h3 style="color: blue;">Comments:</h3>
+		<% @comments.each do |comment| %>
+		<div style="margin-left: 50px;">
+			<% if comment.message.id == message.id%>
+			<h4 style="color: blue;"><%= comment.user.name %> - <%= comment.created_at.strftime("%B %d, %Y") %></h4>
+			<p><%= comment.comment %></p>
+			<% end %>
+		</div>
+		<% end %>
+		<div style="margin-left: 50px;">
+
+			<form action="/comments/<%= message.id %>" method="post">
+				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+				<textarea style="width: 700px; height: 50px;" required name="comment"></textarea>
+
+				<input type="submit" value="Post a comment" >
+			</form>
+		</div>
+	</div>
+	<% end %>
+</div>
+
+
+	</div>
+
+</div>

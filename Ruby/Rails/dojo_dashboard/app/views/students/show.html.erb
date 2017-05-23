@@ -1,0 +1,3 @@
+<h1><%= @student.dojo.branch %> | <%= @student.first_name %> <%= @student.last_name %></h1>
+<p>Email: <%= @student.email %></p>
+<a href="/dojos/<%= @student.dojo.id %>">Campus Home</a> | <a href="/dojos/<%= @student.dojo.id %>/students/<%= @student.id %>/edit">Edit</a>
