@@ -1,14 +1,9 @@
 console.log('User Model')
 var mongoose = require('mongoose');
 var UserSchema = new mongoose.Schema({
-        first: {
+        username: {
           type: String,
-          required: "Need a first name.",
-          minlength: 1
-        },
-        last: {
-          type: String,
-          required: "Need a last name",
+          required: "Need a username.",
           minlength: 1
         },
         email: {
@@ -32,12 +27,6 @@ var UserSchema = new mongoose.Schema({
 	          message: "Password failed, must be at least 8 characters long."
 	        }
         },
-        bday:{
-        	type: Date,
-        	required:"Must have a birthday.",
-
-        }
-
 },{timestamps:true});
 
 var User = mongoose.model('User', UserSchema);

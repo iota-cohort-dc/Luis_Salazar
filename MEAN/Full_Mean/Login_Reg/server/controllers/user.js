@@ -16,7 +16,7 @@ module.exports = {
 		            res.json(err);
 		        }
 		        else{
-		            console.log('Created User!');
+		            console.log('Created User!',user);
 					res.json(user);
 		        }	
 			})

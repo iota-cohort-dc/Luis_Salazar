@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interview Test</title>
+	<!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="static/css/materialize.min.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			$(document).on('submit', '.search_form', function(e){
+				console.log("submit button pressed")
+				e.preventDefault();
+				$.ajax({
+					url: '/players/search', 
+					method: 'post',
+					data: $(this).serialize(),
+					success: function(serverResponse){
+						console.log(serverResponse.query);
+						var players = serverResponse.query;
+						var html_str = "";
+						if (players.length > 0) {
+							html_str += "<tr><th>Player Name:</th><th>Actions:</th></tr>" 
+							for (var i = 0; i < players.length; i++) {
+								// console.log(players[i].firstname, players[i].lastname)
+								var name = players[i].firstname + " " + players[i].lastname;
+								var id = players[i].ilkid;
+
+								html_str += "<tr><td><a href='/players/show/"+id+"'>" +name+ "</a></td>";
+								html_str += "<td style = 'display: inline-flex;'><form action='/players/edit/"+id+"'><button type='submit' class='btn'>Edit</button></form> <form action='/players/delete/"+id+"' method='post'><button type='submit' class='btn'>Delete</button></form></td></tr>";
+							}
+						}
+						else{
+							html_str += "<h3>Your search returned no results. <a href='/'>Refresh</a></h3>"
+						}
+						$('.players').html(html_str);
+					}
+				})
+
+			})
+			
+		})
+	</script>
+</head>
+<body>
+	
+<div class="container">
+	<h3>Players</h3>
+	<nav>
+	
+			
+			    <div class="nav-wrapper col s6">
+			      <form action="" method="post" class="search_form">
+			        <div class="input-field">
+			          <input id="search" type="search" name="firstname" placeholder="First Name" required>
+			          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+			          <i class="material-icons"><a href="/">close</a></i>
+			        </div>
+			      </form>
+			    </div>
+		
+  </nav>
+
+	<table class="players highlight">
+		<tr>
+			<th>Player Name:</th>
+			<th>Actions:</th>
+		</tr>
+		{% for player in query: %}
+		<tr>
+			<td><a href="/players/show/{{ player['ilkid'] }}">{{ player['firstname'] }} {{ player['lastname'] }}</a></td>
+
+			<td><form action="/players/edit/{{ player['ilkid'] }}"><button type="submit" class="btn">Edit</button>  <form action="/players/delete/{{ player['ilkid'] }}" method="post"><button type="submit" class="btn">Delete</button>
+			</form></td>
+		</tr>
+		{% endfor %}
+
+	</table>
+	<!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="static/js/materialize.min.js"></script>
+</div>
+</body>
+</html>

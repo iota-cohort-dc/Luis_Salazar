@@ -7,7 +7,7 @@ class User < ApplicationRecord
 	validates :password, :password_confirmation, presence: true, length: {minimum: 4}, :on => :register
 
 	has_many :events, dependent: :nullify
-	has_many :comments, dependent: :destroy
+	# has_many :comments, dependent: :destroy
 	has_many :events_attending, through: :attending, source: :event
 
 	before_save :email_lowercase

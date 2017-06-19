@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Player Information</title>
+</head>
+<body>
+
+	<a href="/">Players Dashboard</a>
+	<h3>{{ player['firstname'] }} {{ player['lastname'] }}</h3>
+	<p>Career {{ player['firstseason'] }} - {{ player['lastseason'] }} </p>
+	<p>Height: {{ player['h_feet'] }}' {{ player['h_inches'] }}" </p>
+	<p>Weight: {{ player['weight'] }}lbs </p>
+	<p>College: {{ player['college'] }}</p>
+	<p>DOB: {{ player['birthday'] }}</p>
+
+</body>
+</html>

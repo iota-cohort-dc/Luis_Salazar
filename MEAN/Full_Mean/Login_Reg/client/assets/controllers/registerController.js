@@ -1,6 +1,10 @@
 myApp.controller('registerController',["$scope","userFactory","$location","$cookies",function ($scope,userFactory,$location,$cookies) {
-	$scope.users = $cookies.get('user_first');
+	$scope.user = $cookies.get('user_name');
 	$scope.messages = [];
+
+    if(!$scope.user){
+        $location.url('/')
+    }
 
     $scope.create = function(){
         userFactory.create($scope.newUser, function(data){
@@ -18,25 +22,26 @@ myApp.controller('registerController',["$scope","userFactory","$location","$cook
                 $location.url("/");
             }
             else{
-                $cookies.put("user_first", data.first);
+                console.log("USERNAME",data.username)
+                $cookies.put("user_name", data.username);
 
-                console.log($cookies.get("user_id"));
+                console.log($cookies.get("user_name"));
                 $location.url("/success");
             }
         })
     },
     $scope.login = function(){
-    	userFactory.login($scope.users, function(data){
+    	userFactory.login($scope.user, function(data){
     		if(data.errors){
     			$scope.messages.push(data.errors);
     			$location.url('/login');
     		}
     		else{
-    			$cookies.put('user_first',data.first);
-    			console.log($cookies.get('user_first'));
-    			$scope.users = data;
+    			$cookies.put('user_name',data.username);
+    			console.log($cookies.get('user_name'));
+    			$scope.user = data;
     			console.log(data)
-    			console.log($scope.users)
+    			console.log($scope.user)
     			$location.url('/success');
     		}
     	})
@@ -46,7 +51,7 @@ myApp.controller('registerController',["$scope","userFactory","$location","$cook
     	angular.forEach(cookies,function(v,k){
     		$cookies.remove(k);
     	});
-    	console.log("User id", $cookies.get('user_first'));
+    	console.log("User name", $cookies.get('user_name'));
     	$location.url('/');
     }
 

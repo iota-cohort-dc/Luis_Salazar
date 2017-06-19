@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Player</title>
+</head>
+<body>
+	<a href="/">Players Dashboard</a>
+	<br>
+	<h3>Edit Coach Information</h3>
+	<form action="/players/update/{{ player['ilkid'] }}" method="post">
+		<p>First Name: <input type="text" name="firstname" value="{{ player['firstname'] }}"></p>
+		<p>Last Name: <input type="text" name="lastname" value="{{ player['lastname'] }}"></p>
+		<p>Career: 
+			<input type="number" name="firstseason" value="{{ player['firstseason'] }}"> 
+			<input type="number" name="lastseason" value="{{ player['lastseason'] }}">
+		</p>
+		<p>Height: 
+			<input type="number" name="h_feet" value="{{ player['h_feet'] }}">ft 
+			<input type="number" name="h_inches" value="{{ player['h_inches'] }}">in
+		</p>
+		<p>College: <input type="text" name="college" value="{{ player['college'] }}"></p>
+		<button type="submit">Update</button>
+	</form>
+
+
+</body>
+</html>
